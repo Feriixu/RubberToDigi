@@ -34,51 +34,72 @@ const char L68[] PROGMEM = "exit";
 char buffer[110];
 #define GetPsz( x ) (strcpy_P(buffer, (char*)x))
 
-void waitFor( int d ) {DigiKeyboardDe.delay(d);}
-void sendModKey( int key, int mod ) { DigiKeyboardDe.sendKeyStroke(key, mod); DigiKeyboardDe.update(); }
-void sendKey( int key ) {  DigiKeyboardDe.sendKeyStroke(key); DigiKeyboardDe.update(); }
-void sendKeys(char t[]) {DigiKeyboardDe.print(t); DigiKeyboardDe.update();}
-void sendLine(char t[]) {DigiKeyboardDe.print(t); DigiKeyboardDe.update(); sendKey(KEY_ENTER);}
+void waitFor( int d ) {
+  DigiKeyboardDe.delay(d);
+}
+void sendModKey( int key, int mod ) {
+  DigiKeyboardDe.sendKeyStroke(key, mod);
+  DigiKeyboardDe.update();
+}
+void sendKey( int key ) {
+  DigiKeyboardDe.sendKeyStroke(key);
+  DigiKeyboardDe.update();
+}
+void sendKeys(char t[]) {
+  DigiKeyboardDe.print(t);
+  DigiKeyboardDe.update();
+}
+void sendLine(char t[]) {
+  DigiKeyboardDe.print(t);
+  DigiKeyboardDe.update();
+  sendKey(KEY_ENTER);
+}
 
-void setup() 
+void setup()
 {
-	sendKey(0);
-	sendModKey(KEY_R ,MOD_GUI_LEFT);
-	waitFor(400);
-	sendKeys(GetPsz (L3));
-	sendKey(KEY_ENTER);
-	waitFor(1000);
+  sendKey(0);
+  sendModKey(KEY_R , MOD_GUI_LEFT);
+  waitFor(400);
+  sendKeys(GetPsz (L3));
+  sendKey(KEY_ENTER);
+  waitFor(1000);
   sendLine("color 0a");
-	sendLine(GetPsz (L12));
-	sendLine(GetPsz (L14));
-	sendLine(GetPsz (L16));
-	sendLine(GetPsz (L18));
-	sendLine(GetPsz (L20));
-	sendLine(GetPsz (L22));
-	sendLine(GetPsz (L24));
-	sendLine(GetPsz (L26));
-	sendLine(GetPsz (L28));
-	sendLine(GetPsz (L30));
-	sendLine(GetPsz (L32));
-	sendLine(GetPsz (L34));
-	sendLine(GetPsz (L36));
-	sendLine(GetPsz (L38));
-	sendLine(GetPsz (L40));
-	sendLine(GetPsz (L42));
-	sendLine(GetPsz (L44));
-	sendLine(GetPsz (L46));
-	sendLine(GetPsz (L48));
-	sendLine(GetPsz (L50));
-	sendLine(GetPsz (L52));
-	sendLine(GetPsz (L54));
-	sendLine(GetPsz (L56));
-	sendLine(GetPsz (L58));
-	sendLine(GetPsz (L60));
-	sendModKey(KEY_C, MOD_CONTROL_LEFT);
-	sendKey(KEY_ENTER);
-	sendLine(GetPsz (L64));
-	sendLine(GetPsz (L66));
-	sendLine(GetPsz (L68));
+  /*
+  for ( int i = 12; i <= 68; i += 2)
+  {
+    sendLine(GetPsz (
+  }
+  */
+  sendLine(GetPsz (L12));
+  sendLine(GetPsz (L14));
+  sendLine(GetPsz (L16));
+  sendLine(GetPsz (L18));
+  sendLine(GetPsz (L20));
+  sendLine(GetPsz (L22));
+  sendLine(GetPsz (L24));
+  sendLine(GetPsz (L26));
+  sendLine(GetPsz (L28));
+  sendLine(GetPsz (L30));
+  sendLine(GetPsz (L32));
+  sendLine(GetPsz (L34));
+  sendLine(GetPsz (L36));
+  sendLine(GetPsz (L38));
+  sendLine(GetPsz (L40));
+  sendLine(GetPsz (L42));
+  sendLine(GetPsz (L44));
+  sendLine(GetPsz (L46));
+  sendLine(GetPsz (L48));
+  sendLine(GetPsz (L50));
+  sendLine(GetPsz (L52));
+  sendLine(GetPsz (L54));
+  sendLine(GetPsz (L56));
+  sendLine(GetPsz (L58));
+  sendLine(GetPsz (L60));
+  sendModKey(KEY_C, MOD_CONTROL_LEFT);
+  sendKey(KEY_ENTER);
+  sendLine(GetPsz (L64));
+  sendLine(GetPsz (L66));
+  sendLine(GetPsz (L68));
 }
 
 void loop() { }
